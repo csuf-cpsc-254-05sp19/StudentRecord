@@ -1,0 +1,21 @@
+﻿Project Proposal - Report Card Management System 
+by tackyunicorn
+Github link: https://github.com/tackyunicorn/ReportCardManagementSystem
+
+
+Team Members:
+        Jimmy Phong
+        Valeria Gonzalez
+        Liem Tran
+
+
+Overview of the Project
+This program named- “Report Card Management System”, includes provisions for 
+adding, deleting, displaying and various other functions on student records. 
+All the records are saved to data files. The purpose of the project is to organize student records and provide a system to manage given information for easy access. 
+
+
+Goal of the Software 
+The goal of the software is to help teachers and students manage report cards 
+in an organized manner. We will learn and use the resources and implement them 
+into the existing project. Using the existing source code provided from the user tackyunicorn, we will add a function to calculate the GPAs for individual students, search for the class average of a specific and add class years to the data while storing the history of student enrollment.
