@@ -4,6 +4,7 @@
 #include <cstdlib>
 #include <curses.h> //replaced the #include<conio.h>
 #include <iomanip>
+#include <vector>
 
 using namespace std;
 
@@ -12,11 +13,13 @@ struct student{
                     char first_name[10], last_name[10];
                     char course[10];
                     int section;
+                    double gpa;
                };
 int main() {
     FILE *fp, *ft;
     char another, choice;
     struct student e;
+    vector<double> gpaArray; //this is used to store all gpas
     long int recsize;
     int modified = 0, roll_no;
 
@@ -60,7 +63,6 @@ int main() {
                     system("clear");
                     cout << "Enter Roll No: ";
                     cin >> e.roll_no;
- 
                     cout << "Enter the First Name : ";
                     cin >> e.first_name;
                     cout << "Enter the Last Name : ";
@@ -69,6 +71,8 @@ int main() {
                     cin >> e.course;
                     cout << "Enter the Section   : ";
                     cin >> e.section;
+                    cout << "Enter the GPA  : ";    //added new gpa
+                    cin >>e.section;
                     fwrite(&e,recsize,1,fp);
                     cout << "\n Add Another Record (Y/N) ";
                     cin >> another;
