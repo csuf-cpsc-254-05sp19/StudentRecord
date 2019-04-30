@@ -1,0 +1,26 @@
+﻿Project Proposal - Report Card Management System 
+by tackyunicorn
+Github link: https://github.com/tackyunicorn/ReportCardManagementSystem
+
+
+Team Members:
+        Jimmy Phong
+        Valeria Gonzalez
+        Liem Tran
+
+
+Overview of the Project
+This program named- “Report Card Management System”, includes provisions for 
+adding, deleting, displaying and various other functions on student records. 
+All the records are saved to data files. The project was developed for Windows 
+systems using the Dev C++ IDE. It was compiled using the mingw32-gccg++ 
+complier - Version 6.3.0-1.
+
+
+Goal of the Software 
+The goal of the software is to help teachers and students manage report cards 
+in an organized manner. We will learn and use the resources and implement them 
+into the existing project. The team agreed to add more objects and a 
+functionality where the teacher and student can have access to what score 
+they got for each subject. If we are interested in adding more functionality, 
+then we will proceed to do so.
