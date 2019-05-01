@@ -5,19 +5,50 @@
 #include <curses.h> //replaced the #include<conio.h>
 #include <iomanip>
 #include <vector>
+#include <fstream>
+#include <string>
+
 
 using namespace std;
 
 struct student{
+                    int year;
                     int roll_no;
                     char first_name[10], last_name[10];
                     char course[10];
                     int section;
                     double gpa;
                };
+/**************************************************************
+
+
+readOut Function will update the students.txt everytime
+
+
+***************************************************************/
+void readStudents(vector<student>&s, string file);
+void readOut(vector<student> s,string file);
+
+
+
 int main() {
     FILE *fp, *ft;
     char another, choice;
+    /*
+        this portion is for the readStudents function
+        im reading from the students txt file and pushing it into a vector
+    */
+    string file = "/home/student/CS254/OpenSourceProject/project-StudentRecordManagement/Libs/students.txt";
+    vector<student> students; //vector holding structs
+    readStudents(students, file);
+    /*
+        this portion is readOut function
+    */
+    
+    
+
+
+
     struct student e;
     vector<double> gpaArray; //this is used to store all gpas
     long int recsize;
@@ -55,7 +86,7 @@ int main() {
         {
             case '1' :
             {
-                fseek(fp,0,SEEK_END);
+                fseek(fp,0,SEEK_END); 
                 another ='Y';
                 int index = 0;
                 while(another == 'Y' || another == 'y')
@@ -73,6 +104,13 @@ int main() {
                     cin >> e.section;
                     cout << "Enter the GPA  : ";    //added new gpa
                     cin >>e.gpa;
+                    cout << "Enter the Class Year   : ";//add class year
+                    cin >>e.year;
+                    /*
+                        new stuff
+                    */
+                    students.push_back(e);
+                    readOut(students,file);//new feature
                     fwrite(&e,recsize,1,fp);
                     cout << "\n Add Another Record (Y/N) ";
                     cin >> another;
@@ -85,9 +123,9 @@ int main() {
                     rewind(fp);
                     cout << "=== View the Records in the Database ===";
                     cout << "\n";
-                    cout << setw(15) << "Roll No." << setw(15) << "First Name" << setw(15) << " Last Name " << setw(15) << " Course " << setw(15) << " Section " << setw(15) << "GPA" << "\n";
+                    cout << setw(15) <<"Year"<<setw(15)<< "Roll No." << setw(15) << "First Name" << setw(15) << " Last Name " << setw(15) << " Course " << setw(15) << " Section " <<setw(15)<< " GPA "<<"\n";
                     while (fread(&e,recsize,1,fp) == 1){
-                        cout <<"\n" << setw(15) << e.roll_no << setw(15) << e.first_name << setw(15)  << e.last_name << setw(15) << e.course <<  setw(15)  << e.section << setw(15) << e.gpa;
+                        cout <<"\n" << setw(15) << e.year<<setw(15) << e.roll_no << setw(15) << e.first_name << setw(15)  << e.last_name << setw(15) << e.course <<  setw(15)  << e.section <<setw(15)<<e.gpa;
                     }
                     cout << "\n\n";
                     //system("pause");
@@ -113,7 +151,9 @@ int main() {
                                 cin >> e.course;
                                 cout << "Enter the Section   : ";
                                 cin >> e.section;
-                                cout << "Enter the GPA  : ";    //added new gpa
+                                cout << "Enter the Class Year   :";
+                                cin >> e.year;
+                                cout << "Enter the GPA  :";
                                 cin >>e.gpa;
                                 fseek(fp, - recsize, SEEK_CUR);
                                 fwrite(&e,recsize,1,fp);
@@ -173,6 +213,27 @@ int main() {
             }
           }
      }
+
+
     system("pause");
     return 0;
+}
+////////////////////////////////////////////////////////////////
+void readStudents(vector<student>&s, string file)
+{
+
+}
+
+void readOut(vector<student> s,string file)
+{
+    ofstream outFile;
+    outFile.open(file);
+    for(int a = 0; a < s.size();a++)
+    {
+        outFile << s.at(a).roll_no << " "<<s.at(a).first_name << " "<< 
+        s.at(a).last_name << " "<< s.at(a).course << " " <<
+        s.at(a).section << " " << s.at(a).gpa <<endl;
+    }
+
+    outFile.close();
 }
