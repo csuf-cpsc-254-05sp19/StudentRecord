@@ -224,10 +224,13 @@ void readStudents(vector<student>&s, string file)
     ifstream inFile;
     inFile.open(file);
 
+    student temp;
+    /*
     while(!inFile.eof())
     {
-        struct student temp;
+        inFile.ignore();
         inFile >> temp.year;
+
         inFile >> temp.roll_no;
         inFile >> temp.first_name;
         inFile >> temp.last_name;
@@ -236,8 +239,13 @@ void readStudents(vector<student>&s, string file)
 
         s.push_back(temp);
     }
-
-
+    //testing 
+    for(int a = 0; a < s.size()-1;a++)
+    {
+        cout << s.at(a).year;
+    }
+    
+*/
 
     inFile.close();
 }
