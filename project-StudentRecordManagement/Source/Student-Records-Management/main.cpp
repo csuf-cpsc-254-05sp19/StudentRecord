@@ -221,7 +221,25 @@ int main() {
 ////////////////////////////////////////////////////////////////
 void readStudents(vector<student>&s, string file)
 {
+    ifstream inFile;
+    inFile.open(file);
 
+    while(!inFile.eof())
+    {
+        struct student temp;
+        inFile >> temp.year;
+        inFile >> temp.roll_no;
+        inFile >> temp.first_name;
+        inFile >> temp.last_name;
+        inFile >> temp.course;
+        inFile >> temp.gpa;
+
+        s.push_back(temp);
+    }
+
+
+
+    inFile.close();
 }
 
 void readOut(vector<student> s,string file)
@@ -230,7 +248,7 @@ void readOut(vector<student> s,string file)
     outFile.open(file);
     for(int a = 0; a < s.size();a++)
     {
-        outFile << s.at(a).roll_no << " "<<s.at(a).first_name << " "<< 
+        outFile << s.at(a).year<<" "<<s.at(a).roll_no << " "<<s.at(a).first_name << " "<< 
         s.at(a).last_name << " "<< s.at(a).course << " " <<
         s.at(a).section << " " << s.at(a).gpa <<endl;
     }
