@@ -78,7 +78,8 @@ int main() {
         cout << "\n \t\t\t 2. List   Records";
         cout << "\n \t\t\t 3. Modify Records";
         cout << "\n \t\t\t 4. Delete Records";
-        cout << "\n \t\t\t 5. Exit   Program";
+        cout << "\n \t\t\t 5. Year's Average";
+        cout << "\n \t\t\t 6. Exit   Program";
         cout << "\n\n";
         cout << "\t\t\t Select Your Choice :=> ";
         cin >> choice;
@@ -203,7 +204,27 @@ int main() {
                     }
                     break;
             }
-            case '5':
+            case '5':			//calculates the average of a year given by the user
+            {
+                    system("clear");
+                    rewind(fp);
+		                int nyear = 0;
+		                double total = 0.0;
+		                 nt counter = 0;
+		                cout << "Enter desired year average: ";	//gets a year from the user
+		                cin >> nyear;
+                    for(int i = 0; i < students.size(); i++){	//loops through the vector containing the student data and adding the appropriate GPAs to the total
+			                if(students[i].year == nyear){
+				                total += students[i].gpa;
+				                counter++;
+			                }
+                    }
+		                total /= counter;	//divides the sum of GPAs by the number of students
+		                cout << "The class average for the year " << nyear << " is " << total << endl; //returns the average
+                    //system("pause");
+                    break;
+            }
+            case '6':
             {
                     fclose(fp);
                     cout << "\n\n";
