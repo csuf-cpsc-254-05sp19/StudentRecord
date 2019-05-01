@@ -72,7 +72,7 @@ int main() {
                     cout << "Enter the Section   : ";
                     cin >> e.section;
                     cout << "Enter the GPA  : ";    //added new gpa
-                    cin >>e.section;
+                    cin >>e.gpa;
                     fwrite(&e,recsize,1,fp);
                     cout << "\n Add Another Record (Y/N) ";
                     cin >> another;
@@ -85,9 +85,9 @@ int main() {
                     rewind(fp);
                     cout << "=== View the Records in the Database ===";
                     cout << "\n";
-                    cout << setw(15) << "Roll No." << setw(15) << "First Name" << setw(15) << " Last Name " << setw(15) << " Course " << setw(15) << " Section " << "\n";
+                    cout << setw(15) << "Roll No." << setw(15) << "First Name" << setw(15) << " Last Name " << setw(15) << " Course " << setw(15) << " Section " << setw(15) << "GPA" << "\n";
                     while (fread(&e,recsize,1,fp) == 1){
-                        cout <<"\n" << setw(15) << e.roll_no << setw(15) << e.first_name << setw(15)  << e.last_name << setw(15) << e.course <<  setw(15)  << e.section;
+                        cout <<"\n" << setw(15) << e.roll_no << setw(15) << e.first_name << setw(15)  << e.last_name << setw(15) << e.course <<  setw(15)  << e.section << setw(15) << e.gpa;
                     }
                     cout << "\n\n";
                     //system("pause");
@@ -113,6 +113,8 @@ int main() {
                                 cin >> e.course;
                                 cout << "Enter the Section   : ";
                                 cin >> e.section;
+                                cout << "Enter the GPA  : ";    //added new gpa
+                                cin >>e.gpa;
                                 fseek(fp, - recsize, SEEK_CUR);
                                 fwrite(&e,recsize,1,fp);
                                 modified = 1;
