@@ -50,7 +50,7 @@ int main() {
 
 
     struct student e;
-    vector<double> gpaArray; //this is used to store all gpas
+    //vector<double> gpaArray; //this is used to store all gpas
     long int recsize;
     int modified = 0, roll_no;
 
@@ -78,8 +78,9 @@ int main() {
         cout << "\n \t\t\t 2. List   Records";
         cout << "\n \t\t\t 3. Modify Records";
         cout << "\n \t\t\t 4. Delete Records";
-        cout << "\n \t\t\t 5. Year's Average";
-        cout << "\n \t\t\t 6. Exit   Program";
+	cout << "\n \t\t\t 5. Class  Average";
+        cout << "\n \t\t\t 6. Year's Average";
+        cout << "\n \t\t\t 7. Exit   Program";
         cout << "\n\n";
         cout << "\t\t\t Select Your Choice :=> ";
         cin >> choice;
@@ -204,7 +205,25 @@ int main() {
                     }
                     break;
             }
-            case '5':			//calculates the average of a year given by the user
+	case '5':	// calculate the class average		
+            {
+                    system("clear");
+                    rewind(fp);
+		                
+		                double sum = 0.0;
+		                int v = 0;         
+                    for(int i = 0; i < students.size(); i++){	 
+			 if(students[i].gpa){
+				 sum += students[i].gpa;  
+				      v++;
+			    }
+                    }
+		                sum /= v;	
+				cout << "\t\t\tThe Total Class Aerage GPA: " << sum << endl;
+             
+                    break;
+            }	
+            case '6':			//calculates the average of a year given by the user
             {
                     system("clear");
                     rewind(fp);
@@ -224,7 +243,7 @@ int main() {
                     //system("pause");
                     break;
             }
-            case '6':
+            case '7':
             {
                     fclose(fp);
                     cout << "\n\n";
