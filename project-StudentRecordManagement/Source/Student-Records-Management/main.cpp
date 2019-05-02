@@ -219,7 +219,7 @@ int main() {
 			    }
                     }
 		                sum /= v;	
-				cout << "\t\t\tThe Total Class Aerage GPA: " << sum << endl;
+				cout << "\t\t\tThe Total Class Average GPA: " << sum << endl;
              
                     break;
             }	
