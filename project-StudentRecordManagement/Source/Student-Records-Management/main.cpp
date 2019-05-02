@@ -229,7 +229,7 @@ int main() {
                     rewind(fp);
 		                int nyear = 0;
 		                double total = 0.0;
-		                 nt counter = 0;
+		                int counter = 0;
 		                cout << "Enter desired year average: ";	//gets a year from the user
 		                cin >> nyear;
                     for(int i = 0; i < students.size(); i++){	//loops through the vector containing the student data and adding the appropriate GPAs to the total
