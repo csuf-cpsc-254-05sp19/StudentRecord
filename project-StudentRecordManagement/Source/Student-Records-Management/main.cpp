@@ -263,36 +263,6 @@ int main() {
     return 0;
 }
 ////////////////////////////////////////////////////////////////
-void readStudents(vector<student>&s, string file)
-{
-    ifstream inFile;
-    inFile.open(file);
-
-    student temp;
-    /*
-    while(!inFile.eof())
-    {
-        inFile.ignore();
-        inFile >> temp.year;
-
-        inFile >> temp.roll_no;
-        inFile >> temp.first_name;
-        inFile >> temp.last_name;
-        inFile >> temp.course;
-        inFile >> temp.gpa;
-
-        s.push_back(temp);
-    }
-    //testing 
-    for(int a = 0; a < s.size()-1;a++)
-    {
-        cout << s.at(a).year;
-    }
-    
-*/
-
-    inFile.close();
-}
 
 void readOut(vector<student> s,string file)
 {
