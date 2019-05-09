@@ -225,6 +225,8 @@ int main() {
             }	
             case '6':			//calculates the average of a year given by the user
             {
+		    char ans = 'Y';
+		    while(ans == 'Y' || ans == 'y'){
                     system("clear");
                     rewind(fp);
 		                int nyear = 0;
@@ -239,8 +241,10 @@ int main() {
 			                }
                     }
 		                total /= counter;	//divides the sum of GPAs by the number of students
-		                cout << "The class average for the year " << nyear << " is " << total << endl; //returns the average
-                    //system("pause");
+		                cout << "The class average for the year " << nyear << " is " << total << endl << endl << "Look up another year (Y/N)"; //returns the average
+                    		cin >> ans;
+			    //system("pause");
+		    }
                     break;
             }
             case '7':
